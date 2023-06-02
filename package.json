@@ -5,8 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "npm run build:lib && npm run build:app",
+    "build:app": "tsc && vite build",
+    "build:lib": "npm run build --prefix demo-ui-lib",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "postinstall": "npm install --prefix demo-ui-lib",
     "preview": "vite preview"
   },
   "dependencies": {
